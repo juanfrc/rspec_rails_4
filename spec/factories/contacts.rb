@@ -12,7 +12,7 @@ FactoryGirl.define do
     end
 
     factory :invalid_contact do
-      firstname: nil
+      firstname nil
     end
   end
 end
