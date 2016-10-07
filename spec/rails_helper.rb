@@ -1,6 +1,22 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
+
+config.before(:suite) do
+  DatabaseCleaner.strategy = :transaction
+  DatabaseCleaner.clean_with :truncation
+end
+
+config.around(:each) do |example|
+  DatabaseCleaner.cleaning do
+    example.run
+  end
+end
+
+config.after(:each) do
+  DatabaseCleaner.clean
+end
+∫
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
