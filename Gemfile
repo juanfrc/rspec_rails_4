@@ -20,8 +20,10 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem "twitter-bootstrap-rails", "~> 2.2.8"
 
 group :development, :test do
+  gem 'spring-commands-rspec', '~> 1.0', '>= 1.0.4'
   gem "rspec-rails", "~> 3.3"
   gem "factory_girl_rails"
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
 end
 
 group :test do
@@ -30,4 +32,5 @@ group :test do
   gem "database_cleaner", "~> 1.5"
   gem "launchy", "~> 2.4"
   gem "selenium-webdriver", "~> 2.53.4"
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
 end
